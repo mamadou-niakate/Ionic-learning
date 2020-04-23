@@ -1,0 +1,30 @@
+group {
+    .column-2{
+            padding-top: 25px;
+            flex: 0 0 16.66667%;
+            width: 3.66667%;
+            max-width: 4.66667%;
+    }
+
+    .column-1{
+        flex: 0 0 95%;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    ion-checkbox {
+        .item-cover {
+            width: 70px;
+        }
+    }
+
+    .checked{
+        text-decoration: line-through;
+        background-color: rgba(100, 245, 131, 0.5);
+    }
+    .unChecked{
+        text-decoration: none;
+        background-color:white;
+    }
+}
+

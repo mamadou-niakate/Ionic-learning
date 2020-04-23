@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{task.name}}</ion-title>
+    <ion-buttons start>
+      <button ion-button icon-only (click)="onToggleMenu()">
+        <ion-icon name="menu"></ion-icon>
+      </button>
+  </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list reorder="true" (ionItemReorder)="reorderItems($event)">
+    <ion-item-sliding *ngFor="let subTask of task.subTasks; let subTaskIndex = index">
+      <button ion-item *ngIf="subTask.title !== ''" [ngClass]="{'checked':subTask.isChecked, 'unChecked': !subTask.isChecked}">
+          <ion-label >{{subTask.title}}</ion-label>
+          <ion-checkbox [(ngModel)]="subTask.isChecked"></ion-checkbox>
+      </button>
+      <ion-item-options side="right">
+        <button icon-only (click)="deleteItem(subTask)">
+          <ion-icon ios="ios-trash" md="md-trash" color="danger"></ion-icon>
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+  <div>
+      <form id="form" #f="ngForm" (ngSubmit)="formSubmit(f)" *ngIf="wantToAddSubTask">
+        <p><input name="sous_tache" ngModel/></p>
+        <button ion-button type="submit">Ajouter</button>
+      </form>
+      <button id="button" ion-button (click)="openOrSubmitForm()" *ngIf="!wantToAddSubTask">Ajouter</button>
+  </div>
+</ion-content>

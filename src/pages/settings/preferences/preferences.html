@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button clear (click)="dismissModal()"> Fermer </button>
+  </ion-navbar>
+  <style>
+    :root {
+      --ion-safe-area-top: 20px;
+      --ion-safe-area-bottom: 22px;
+    }
+  </style>
+</ion-header>
+
+<ion-content padding>
+  <ion-list radio-group >
+    <ion-list-header>
+      <ion-label>Thème</ion-label>
+    </ion-list-header>
+      <ion-item>
+        <ion-label>Sombre</ion-label>
+        <ion-radio value="sombre" (ionSelect)= "toDarkTheme()"></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>Clair</ion-label>
+        <ion-radio value="clair" (ionSelect)= "toLightTheme()"></ion-radio>
+      </ion-item>
+  </ion-list>
+</ion-content>

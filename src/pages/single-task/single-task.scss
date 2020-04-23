@@ -1,0 +1,16 @@
+page-single-task {
+    ion-checkbox {
+        .item-cover {
+            width: 70px;
+        }
+    }
+
+    .checked{
+        text-decoration: line-through;
+        background-color: rgba(100, 245, 131, 0.5);
+    }
+    .unChecked{
+        text-decoration: none;
+        background-color:white;
+    }
+}

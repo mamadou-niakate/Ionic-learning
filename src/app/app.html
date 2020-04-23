@@ -1,0 +1,28 @@
+<ion-menu [content]="content" [ngClass]="selectedTheme">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <button ion-item icon-start (click)="onNavigate(profilPage)">
+          <ion-icon ios="ios-person" md="md-person"></ion-icon>
+          Profil
+        </button>
+        <button ion-item icon-start (click)="onNavigate(notificationsPage)">
+          <ion-icon ios="ios-notifications" md="md-notifications"></ion-icon>
+          Notifications
+        </button>
+        <button ion-item icon-start (click)="onNavigate(preferencesPage)">
+          <ion-icon ios="ios-options" md="md-options"></ion-icon>
+          Préférences
+        </button>
+        <button ion-item icon-start (click)="onNavigate(aboutPage)">
+          <ion-icon ios="ios-happy" md="md-happy"></ion-icon>
+          Apropos
+        </button>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+<ion-nav [root]="rootPage" #content [ngClass]="selectedTheme"></ion-nav>

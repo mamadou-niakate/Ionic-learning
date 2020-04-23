@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Todo</ion-title>
+    <ion-buttons start>
+      <button ion-button icon-only (click)="onToggleMenu()">
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-list reorder="true" (ionItemReorder)="reorderItems($event)" >
+      <ion-item-sliding id="item" *ngFor="let task of tasksList; let itemIndex = index" (click)="openTask(itemIndex)">
+          <button ion-item [ngClass]="{'checked':task.isChecked, 'unChecked': !task.isChecked}">                                                                                                                                                                                                                                                                                                                                                                                                
+            <ion-label> {{task.name}} </ion-label>
+            <ion-checkbox [(ngModel)]="task.isChecked"></ion-checkbox>
+          </button>
+          <ion-item-options side="right">
+            <button icon-only (click)="deleteItem(task)">
+              <ion-icon ios="ios-trash" md="md-trash" color="danger"></ion-icon>
+            </button>                                                                                                                                               
+          </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+  <div>
+    <form id="form" #f="ngForm" (ngSubmit)="formSubmit(f)" *ngIf="wantToAddSubTask">
+      <p><input name="tache" ngModel/></p>
+      <button ion-button type="submit">Ajouter</button>
+    </form>
+    <button id="button" ion-button (click)="openOrSubmitForm()" *ngIf="!wantToAddSubTask">Ajouter</button>
+</div>
+</ion-content>
